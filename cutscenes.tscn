@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bff70oi4criij"]
+
+[ext_resource type="Texture2D" uid="uid://ckyri3dywr4sn" path="res://Art/scene1.png" id="1_6k8s0"]
+[ext_resource type="Script" path="res://cutscenes.gd" id="1_dgwo4"]
+
+[node name="Cutscenes" type="Node2D"]
+script = ExtResource("1_dgwo4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6k8s0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -538.0
+offset_top = 252.0
+offset_right = 544.0
+offset_bottom = 357.0
+theme_override_font_sizes/font_size = 50
+text = "hoijoijoijoikjlkjlkjloimiooijlkjkljlkkllkjlkjlkjlkjlk"
+
+[node name="UserPrompt" type="Label" parent="."]
+offset_left = -735.0
+offset_top = 401.0
+offset_right = -446.0
+offset_bottom = 469.0
+theme_override_font_sizes/font_size = 25
+text = "'C' to advance to next cutscene"

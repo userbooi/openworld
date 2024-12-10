@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://iiahoh2xpc1y"]
+
+[ext_resource type="PackedScene" uid="uid://bff70oi4criij" path="res://cutscenes.tscn" id="1_vcj3p"]
+
+[node name="main" type="Node2D"]
+
+[node name="Cutscenes" parent="." instance=ExtResource("1_vcj3p")]
+position = Vector2(570, 314)
+scale = Vector2(0.7, 0.7)
