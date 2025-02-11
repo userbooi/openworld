@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dmlw6plx0o4g8"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Title" type="Label" parent="."]
+offset_left = 375.0
+offset_top = 306.0
+offset_right = 721.0
+offset_bottom = 389.0
+theme_override_font_sizes/font_size = 60
+text = "Open World"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 62.0
+offset_top = 425.0
+offset_right = 257.0
+offset_bottom = 516.0
+theme_override_font_sizes/font_size = 35
+text = "START"
