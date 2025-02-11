@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://iiahoh2xpc1y"]
+[gd_scene load_steps=5 format=3 uid="uid://iiahoh2xpc1y"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_n77nj"]
 [ext_resource type="PackedScene" uid="uid://bff70oi4criij" path="res://cutscenes.tscn" id="1_vcj3p"]
-[ext_resource type="PackedScene" uid="uid://dmlw6plx0o4g8" path="res://main_menu.tscn" id="1_xcyxj"]
+[ext_resource type="PackedScene" uid="uid://du7gm1dpubmvy" path="res://main_menu.tscn" id="1_xcyxj"]
+[ext_resource type="PackedScene" uid="uid://dh6ogvs8756s7" path="res://player.tscn" id="4_fef01"]
 
 [node name="main" type="Node2D"]
-
-[node name="MainMenu" parent="." instance=ExtResource("1_xcyxj")]
-position = Vector2(-36, -36)
+script = ExtResource("1_n77nj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -36.0
@@ -18,3 +18,11 @@ color = Color(0, 0, 0, 1)
 [node name="Cutscenes" parent="." instance=ExtResource("1_vcj3p")]
 position = Vector2(570, 314)
 scale = Vector2(0.7, 0.7)
+
+[node name="MainMenu" parent="." instance=ExtResource("1_xcyxj")]
+
+[node name="Player" parent="." instance=ExtResource("4_fef01")]
+position = Vector2(861, 433)
+
+[connection signal="startMenu" from="Cutscenes" to="MainMenu" method="_on_cutscenes_start_menu"]
+[connection signal="startGame" from="MainMenu" to="." method="_on_main_menu_start_game"]

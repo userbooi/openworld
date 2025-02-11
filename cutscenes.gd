@@ -1,5 +1,6 @@
 extends Node2D
 var cutscene_num = 0
+signal startMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,5 +55,6 @@ func changeCutscene():
 		$Sprite2D.self_modulate.a = 0
 		$Label.self_modulate.a = 0
 		$UserPrompt.self_modulate.a = 0
+		startMenu.emit()
 		
 		
