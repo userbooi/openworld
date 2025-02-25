@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dh6ogvs8756s7"]
+[gd_scene load_steps=36 format=3 uid="uid://dh6ogvs8756s7"]
 
 [ext_resource type="Texture2D" uid="uid://dxmm1ttvyrm5a" path="res://Art/player/player_idle_e/pixil-frame-0.png" id="1_ibdpr"]
 [ext_resource type="Script" path="res://player.gd" id="1_piwkk"]
@@ -29,6 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://dxy1xa2ole8ru" path="res://Art/player/player_walk_s/pixil-frame-1.png" id="26_p7q6f"]
 [ext_resource type="Texture2D" uid="uid://b4larrs2ssxqf" path="res://Art/player/player_walk_s/pixil-frame-2.png" id="27_258or"]
 [ext_resource type="Texture2D" uid="uid://cewr3bdm4eueg" path="res://Art/player/player_walk_s/pixil-frame-3.png" id="28_agmxp"]
+[ext_resource type="Texture2D" uid="uid://bfrayu80fyk3c" path="res://Art/player/player_walk_w/pixil-frame-0.png" id="30_jpyr5"]
+[ext_resource type="Texture2D" uid="uid://b6iw3kub5kikq" path="res://Art/player/player_walk_w/pixil-frame-1.png" id="31_54mlb"]
+[ext_resource type="Texture2D" uid="uid://drq0xl0cybkv4" path="res://Art/player/player_walk_w/pixil-frame-2.png" id="32_a0pvm"]
+[ext_resource type="Texture2D" uid="uid://bl6lsvx4cqm76" path="res://Art/player/player_walk_w/pixil-frame-3.png" id="33_nmhbc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ny5vr"]
 animations = [{
@@ -153,16 +157,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_ul8bm")
+"texture": ExtResource("30_jpyr5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_jel82")
+"texture": ExtResource("31_54mlb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_03gw0")
+"texture": ExtResource("32_a0pvm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_ycdi8")
+"texture": ExtResource("33_nmhbc")
 }],
 "loop": true,
 "name": &"walkW",
@@ -172,13 +176,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enpbv"]
 size = Vector2(84, 165)
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_piwkk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ny5vr")
-animation = &"idleW"
-frame_progress = 0.180292
+animation = &"walkW"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -18.5)
