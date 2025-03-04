@@ -186,3 +186,6 @@ animation = &"walkW"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -18.5)
 shape = SubResource("RectangleShape2D_enpbv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)

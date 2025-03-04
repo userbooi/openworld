@@ -1,5 +1,5 @@
 extends Node2D
-var cutscene_num = 0
+var cutscene_num = 10
 signal startMenu
 
 # Called when the node enters the scene tree for the first time.

@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 200.0
 var facing = "S"
+
+func _ready() -> void:
+	$Camera2D.enabled = false
 
 func _process(delta: float) -> void:
 	if velocity == Vector2.ZERO:
@@ -33,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			facing = "W"
 		else:
 			facing = "E"
-		velocity.x = dew * SPEED
+		velocity.x = dew
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
@@ -42,8 +45,14 @@ func _physics_process(delta: float) -> void:
 			facing = "N"
 		else:
 			facing = "S"
-		velocity.y = dns * SPEED
+		velocity.y = dns
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
+	velocity = velocity.normalized() * SPEED
+
 	move_and_slide()
+
+
+func _on_main_menu_start_game() -> void:
+	$Camera2D.enabled = true
