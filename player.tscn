@@ -177,6 +177,7 @@ animations = [{
 size = Vector2(84, 165)
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_piwkk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -189,3 +190,7 @@ shape = SubResource("RectangleShape2D_enpbv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
+limit_left = -119
+limit_top = -116
+limit_right = 1386
+limit_bottom = 743

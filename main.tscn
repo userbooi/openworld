@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dh6ogvs8756s7" path="res://player.tscn" id="4_fef01"]
 
 [node name="main" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_n77nj")
 
 [node name="Map" parent="." instance=ExtResource("2_6s4tl")]
@@ -16,6 +17,7 @@ position = Vector2(-39, -40)
 scale = Vector2(0.25, 0.25)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
 offset_left = -36.0
 offset_top = -36.0
 offset_right = 1279.0
@@ -23,10 +25,15 @@ offset_bottom = 744.0
 color = Color(0, 0, 0, 1)
 
 [node name="Cutscenes" parent="." instance=ExtResource("1_vcj3p")]
+z_index = 1
 position = Vector2(570, 314)
 scale = Vector2(0.7, 0.7)
 
 [node name="MainMenu" parent="." instance=ExtResource("1_xcyxj")]
+z_index = 1
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(876, 191)
 
 [connection signal="startMenu" from="Cutscenes" to="MainMenu" method="_on_cutscenes_start_menu"]
 [connection signal="startGame" from="MainMenu" to="." method="_on_main_menu_start_game"]
