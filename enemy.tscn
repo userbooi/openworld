@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwksncpp0e7oj"]
+
+[ext_resource type="Texture2D" uid="uid://olhxd7pygwth" path="res://Art/enemy/pixil-frame-0.png" id="1_5w3nd"]
+[ext_resource type="Texture2D" uid="uid://d3d785ywli6g" path="res://Art/enemy/pixil-frame-1.png" id="2_g8a3y"]
+[ext_resource type="Texture2D" uid="uid://jkf0esq6iog3" path="res://Art/enemy/pixil-frame-2.png" id="3_kam82"]
+[ext_resource type="Texture2D" uid="uid://cc6cvu58o0b0g" path="res://Art/enemy/pixil-frame-3.png" id="4_i6pw4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r2mnr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5w3nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g8a3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kam82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i6pw4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kjy1"]
+radius = 75.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_th35r"]
+radius = 727.789
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pwq2"]
+radius = 207.087
+
+[node name="enemy" type="CharacterBody2D" groups=["baseEnemy"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r2mnr")
+animation = &"walk"
+frame_progress = 0.582665
+
+[node name="Idle" type="CollisionShape2D" parent="."]
+position = Vector2(-12, 9)
+shape = SubResource("CircleShape2D_5kjy1")
+
+[node name="lockInArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lockInArea"]
+shape = SubResource("CircleShape2D_th35r")
+debug_color = Color(0.657964, 0.515741, 0, 0.42)
+
+[node name="attackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
+shape = SubResource("CircleShape2D_4pwq2")
+debug_color = Color(0.992386, 0, 0.252742, 0.42)

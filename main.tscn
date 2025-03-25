@@ -9,6 +9,7 @@
 [node name="main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_n77nj")
+enemies = Array[PackedScene]([null])
 
 [node name="Map" parent="." instance=ExtResource("2_6s4tl")]
 
@@ -34,6 +35,11 @@ z_index = 1
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(876, 191)
+
+[node name="spawnLocations" type="Node2D" parent="."]
+
+[node name="spawn1" type="Marker2D" parent="spawnLocations"]
+position = Vector2(1024, 190)
 
 [connection signal="startMenu" from="Cutscenes" to="MainMenu" method="_on_cutscenes_start_menu"]
 [connection signal="startGame" from="MainMenu" to="." method="_on_main_menu_start_game"]
