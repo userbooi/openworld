@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwksncpp0e7oj"]
+[gd_scene load_steps=10 format=3 uid="uid://bwksncpp0e7oj"]
 
 [ext_resource type="Texture2D" uid="uid://olhxd7pygwth" path="res://Art/enemy/pixil-frame-0.png" id="1_5w3nd"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_ca41q"]
 [ext_resource type="Texture2D" uid="uid://d3d785ywli6g" path="res://Art/enemy/pixil-frame-1.png" id="2_g8a3y"]
 [ext_resource type="Texture2D" uid="uid://jkf0esq6iog3" path="res://Art/enemy/pixil-frame-2.png" id="3_kam82"]
 [ext_resource type="Texture2D" uid="uid://cc6cvu58o0b0g" path="res://Art/enemy/pixil-frame-3.png" id="4_i6pw4"]
@@ -35,6 +36,7 @@ radius = 727.789
 radius = 207.087
 
 [node name="enemy" type="CharacterBody2D" groups=["baseEnemy"]]
+script = ExtResource("1_ca41q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r2mnr")
@@ -56,3 +58,9 @@ debug_color = Color(0.657964, 0.515741, 0, 0.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
 shape = SubResource("CircleShape2D_4pwq2")
 debug_color = Color(0.992386, 0, 0.252742, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://iiahoh2xpc1y"]
+[gd_scene load_steps=7 format=3 uid="uid://iiahoh2xpc1y"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_n77nj"]
 [ext_resource type="PackedScene" uid="uid://bff70oi4criij" path="res://cutscenes.tscn" id="1_vcj3p"]
 [ext_resource type="PackedScene" uid="uid://du7gm1dpubmvy" path="res://main_menu.tscn" id="1_xcyxj"]
 [ext_resource type="PackedScene" uid="uid://qnofosh0sxkr" path="res://Art/TileSheet/map.tscn" id="2_6s4tl"]
 [ext_resource type="PackedScene" uid="uid://dh6ogvs8756s7" path="res://player.tscn" id="4_fef01"]
+[ext_resource type="PackedScene" uid="uid://dkh0276k87mr4" path="res://spawn_point.tscn" id="6_886no"]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" node_paths=PackedStringArray("spawns")]
 y_sort_enabled = true
 script = ExtResource("1_n77nj")
-enemies = Array[PackedScene]([null])
+spawns = [NodePath("spawnLocations/spawnPoint"), NodePath("spawnLocations/spawnPoint2"), NodePath("spawnLocations/spawnPoint3"), NodePath("spawnLocations/spawnPoint4")]
 
 [node name="Map" parent="." instance=ExtResource("2_6s4tl")]
 
@@ -38,8 +39,17 @@ position = Vector2(876, 191)
 
 [node name="spawnLocations" type="Node2D" parent="."]
 
-[node name="spawn1" type="Marker2D" parent="spawnLocations"]
-position = Vector2(1024, 190)
+[node name="spawnPoint" parent="spawnLocations" instance=ExtResource("6_886no")]
+position = Vector2(879, 75)
+
+[node name="spawnPoint2" parent="spawnLocations" instance=ExtResource("6_886no")]
+position = Vector2(23, 208)
+
+[node name="spawnPoint3" parent="spawnLocations" instance=ExtResource("6_886no")]
+position = Vector2(46, 581)
+
+[node name="spawnPoint4" parent="spawnLocations" instance=ExtResource("6_886no")]
+position = Vector2(1225, 641)
 
 [connection signal="startMenu" from="Cutscenes" to="MainMenu" method="_on_cutscenes_start_menu"]
 [connection signal="startGame" from="MainMenu" to="." method="_on_main_menu_start_game"]

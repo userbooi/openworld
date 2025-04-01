@@ -3,9 +3,9 @@ extends Node2D
 var enemy = preload("res://enemy.tscn")
 
 @export var randomVar = 10
-@export var enemies: Array[PackedScene]
+@export var spawns: Array[Area2D]
 
-var max_enemies = 1
+var max_enemies = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,10 +17,10 @@ func _process(delta: float) -> void:
 	pass
 
 func add_enemy() -> void:
-	for e in range(max_enemies):
+	for spawn in spawns:
 		var enemyNode = enemy.instantiate()
-		
-		enemyNode.position = $spawnLocations/spawn1.position
+		enemyNode.scale = Vector2(0.3, 0.3)
+		enemyNode.position = spawn.position
 		
 		add_child(enemyNode)
 
