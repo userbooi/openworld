@@ -63,4 +63,8 @@ debug_color = Color(0.992386, 0, 0.252742, 0.42)
 wait_time = 2.0
 autostart = true
 
+[connection signal="body_entered" from="lockInArea" to="." method="_on_lock_in_area_body_entered"]
+[connection signal="body_exited" from="lockInArea" to="." method="_on_lock_in_area_body_exited"]
+[connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="attackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
